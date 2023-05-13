@@ -78,8 +78,8 @@
 	  						<form action="#" class="request-form ftco-animate bg-primary">
 		          		<h2>Make your rent</h2>
 			    				<div class="form-group">
-			    					<label for="" class="label">Pick-up & Drop-off location</label>
-			    					<input type="text" class="form-control" placeholder="City, Airport, Station, etc">
+			    					<label for="location" class="label">Pick-up & Drop-off location</label>
+			    					<input id=location type="text" class="form-control" placeholder="City">
 			    				</div>
 			    		
 			    				<div class="d-flex">
@@ -97,7 +97,7 @@
 		                <input type="text" class="form-control" id="time_pick" placeholder="Time">
 		              </div>
 			            <div class="form-group">
-			              <input type="submit" value="Search" class="btn btn-secondary py-3 px-4" formaction="car.html">
+			              <button class="btn btn-secondary search-btn">Search</button>
 			            </div>
 			    			</form>
 	  					</div>
@@ -340,6 +340,7 @@
   <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBVWaKrjvy3MaE7SQ74_uJiULgl1JY0H2s&sensor=false"></script>
   <script src="js/google-map.js"></script>
   <script src="js/main.js"></script>
+  <script src="js/carSearch.js"></script>
     
   </body>
 </html>
