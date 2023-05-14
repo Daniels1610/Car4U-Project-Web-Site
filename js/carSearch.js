@@ -1,32 +1,41 @@
-const searchBtn = document.querySelector(".search-btn");
-const locationInput = document.getElementById("location");
+const locationEntered = localStorage.getItem('location');
+const examplBtn = document.querySelector(".show-example-btn");
+console.log(locationEntered);
 
-searchBtn.addEventListener("click", (e) => {
-    e.preventDefault();
-    const locationValue = locationInput.value;
-
-    localStorage.setItem('location', locationValue);
-    let timerInterval;
-    Swal.fire({
-        title: 'Searching Car',
-        html: 'Looking for your perfect deal',
-        timer: 2000,
-        timerProgressBar: true,
-        didOpen: () => {
-            Swal.showLoading()
-            const b = Swal.getHtmlContainer().querySelector('b')
-            timerInterval = setInterval(() => {
-            b.textContent = Swal.getTimerLeft()
-            }, 100)
-        },
-        willClose: () => {
-            clearInterval(timerInterval)
-        }
-        }).then((result) => {
-        /* Read more about handling dismissals below */
-        if (result.dismiss === Swal.DismissReason.timer) {
-            window.location.href = "selection.html";
-        }
+const searchCar = (location) => {
+    const url = `https://78yx1lyjbb.execute-api.us-east-1.amazonaws.com/dev/cars?location=${cities[location]}`;
+    
+    fetch(url)
+        .then(res => {
+            return res.json();
         })
-});
+        .then(data => {
+            let tableData = "";
+            data.Items.forEach(item => {
+                let year = JSON.stringify(item.Year.N);
+                let maker = JSON.stringify(item.Manufacturer.S);
+                let model = JSON.stringify(item.Model.S);
+                let type = JSON.stringify(item.Type.S);
+                let price = JSON.stringify(item.DailyRate.N);
+                    
+                tableData += 
+                `<tr>
+                    <td>${JSON.parse(year)}</td>
+                    <td>${JSON.parse(maker)}</td>
+                    <td>${JSON.parse(model)}</td>
+                    <td>${JSON.parse(type)}</td>
+                    <td>${JSON.parse(price)}</td>
+                </tr>`;
+            });
+            document.getElementById("table_body").innerHTML = tableData;
+        })
+        .catch(error => console.log(error));
+};
 
+const cities = {
+    'Tijuana' : 'TIJ',
+    'Mexicali' : 'MXL',
+    'Ensenada' : 'ENS'
+}
+
+searchCar(locationEntered);
