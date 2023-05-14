@@ -1,22 +1,32 @@
 const searchBtn = document.querySelector(".search-btn");
 const locationInput = document.getElementById("location");
 
-searchBtn.addEventListener("click", () => {
-    const url = `https://78yx1lyjbb.execute-api.us-east-1.amazonaws.com/dev/cars?location=${cities[locationInput.value]}`;
-    
-    fetch(url)
-        .then(res => {
-            return res.json();
-        })
-        .then(data => {
-            // document.querySelector(".queryResult").textContent = data.Items;
-            console.log(data.Items)
-        })
-        .catch(error => console.log(error));
-})
+searchBtn.addEventListener("click", (e) => {
+    e.preventDefault();
+    const locationValue = locationInput.value;
 
-const cities = {
-    'Tijuana' : 'TIJ',
-    'Mexicali' : 'MXL',
-    'Ensenada' : 'ENS'
-}
+    localStorage.setItem('location', locationValue);
+    let timerInterval;
+    Swal.fire({
+        title: 'Searching Car',
+        html: 'Looking for your perfect deal',
+        timer: 2000,
+        timerProgressBar: true,
+        didOpen: () => {
+            Swal.showLoading()
+            const b = Swal.getHtmlContainer().querySelector('b')
+            timerInterval = setInterval(() => {
+            b.textContent = Swal.getTimerLeft()
+            }, 100)
+        },
+        willClose: () => {
+            clearInterval(timerInterval)
+        }
+        }).then((result) => {
+        /* Read more about handling dismissals below */
+        if (result.dismiss === Swal.DismissReason.timer) {
+            window.location.href = "selection.html";
+        }
+        })
+});
+

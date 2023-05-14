@@ -1,5 +1,4 @@
 const nodemailer = require("nodemailer");
-const swal = require('sweetalert2');
 
 const name = document.getElementById("name");
 const email = document.getElementById("email");
@@ -11,14 +10,13 @@ const businessAccount = "car4u.servicenow@gmail.com"
 
 sendBtn.addEventListener("click", () => {
     alert("you click this button");
-    // sendMessage(name.value, email.value, subject.value, message.value);
-    // swal.fire(
-    //     'Message Sent',
-    //     'Thank you for contacting us!',
-    //     'success'
-    // );
+    sendMessage(name.value, email.value, subject.value, message.value);
+    swal.fire(
+        'Message Sent',
+        'Thank you for contacting us!',
+        'success'
+    );
 });
-
 
 const sendMessage = async (name, email, subject, message) => {
     let transporter = createTransportObject();
