@@ -29,4 +29,3 @@ searchBtn.addEventListener("click", (e) => {
         }
         })
 });
-
