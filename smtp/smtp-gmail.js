@@ -1,17 +1,16 @@
-const nodemailer = require("nodemailer");
+// const nodemailer = require("nodemailer");
 
 const name = document.getElementById("name");
 const email = document.getElementById("email");
-const subject = doucment.getElementById("subject");
+const subject = document.getElementById("subject");
 const message = document.getElementById("message");
-const sendBtn = doucment.querySelector(".send-btn");
+const sendBtn = document.querySelector(".sendbtn");
 
 const businessAccount = "car4u.servicenow@gmail.com"
 
 sendBtn.addEventListener("click", () => {
-    alert("you click this button");
-    sendMessage(name.value, email.value, subject.value, message.value);
-    swal.fire(
+    // sendMessage(name.value, email.value, subject.value, message.value);
+    Swal.fire(
         'Message Sent',
         'Thank you for contacting us!',
         'success'
@@ -51,5 +50,4 @@ const createTransportObject = () => {
     return transporter;
 }
 
-// main().catch(console.error);
 

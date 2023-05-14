@@ -1,7 +1,7 @@
- AOS.init({
- 	duration: 800,
- 	easing: 'slide'
- });
+//  AOS.init({
+//  	duration: 800,
+//  	easing: 'slide'
+//  });
 
 (function($) {
 
@@ -49,13 +49,13 @@
 	};
 	fullHeight();
 
-	// loader
+	loader
 	var loader = function() {
 		setTimeout(function() { 
 			if($('#ftco-loader').length > 0) {
 				$('#ftco-loader').removeClass('show');
 			}
-		}, 1);
+		}, 0);
 	};
 	loader();
 
