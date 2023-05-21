@@ -1,10 +1,10 @@
-AWS.config = new AWS.Config();
+// AWS.config = new AWS.Config();
 
-AWS.config.update({
-    accessKeyId: 'AKIAUIDHMFQXT2ABGK6L',
-    secretAccessKey: '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',
-    region: 'us-east-1'
-})
+// AWS.config.update({
+//     accessKeyId: 'AKIAUIDHMFQXT2ABGK6L',
+//     secretAccessKey: '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',
+//     region: 'us-east-1'
+// })
 
 const ses = new AWS.SES();
 const name = document.getElementById("name");
