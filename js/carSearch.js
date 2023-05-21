@@ -1,11 +1,16 @@
 const searchBtn = document.querySelector(".search-btn");
 const locationInput = document.getElementById("location");
+const pickupInput = document.querySelector(".pickup-Date");
+const dropoffInput = document.querySelector(".dropoff-Date");
 
 searchBtn.addEventListener("click", (e) => {
     e.preventDefault();
     const locationValue = locationInput.value;
-
     localStorage.setItem('location', locationValue);
+    searchAlert();
+});
+
+const searchAlert = () => {
     let timerInterval;
     Swal.fire({
         title: 'Searching Car',
@@ -14,18 +19,15 @@ searchBtn.addEventListener("click", (e) => {
         timerProgressBar: true,
         didOpen: () => {
             Swal.showLoading()
-            const b = Swal.getHtmlContainer().querySelector('b')
             timerInterval = setInterval(() => {
-            b.textContent = Swal.getTimerLeft()
             }, 100)
         },
         willClose: () => {
             clearInterval(timerInterval)
         }
         }).then((result) => {
-        /* Read more about handling dismissals below */
         if (result.dismiss === Swal.DismissReason.timer) {
             window.location.href = "selection.html";
         }
         })
-});
+};
