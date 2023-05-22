@@ -90,6 +90,8 @@ address {
   font-style: normal;
   line-height: inherit; }
 
+
+
 ol,
 ul,
 dl {
@@ -9951,3 +9953,6 @@ textarea.form-control {
     stroke-dasharray: 89, 200;
     stroke-dashoffset: -136px; } }
 
+.email-text {
+  padding-left: 1rem;
+}
