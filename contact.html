@@ -92,7 +92,7 @@
 		        </div>
           </div>
           <div class="col-md-8 block-9 mb-md-5">
-            <div class="bg-light p-5 contact-form">
+            <div class="bg-light p-5 contact-form" method="post">
               <div class="form-group">
                 <input id="name" type="text" class="form-control" placeholder="Your Name">
               </div>
@@ -161,7 +161,7 @@
 	              <ul>
 	                <li><span class="icon icon-map-marker"></span><span class="text">Av. CETYS Universidad No. 4 Fracc. El Lago, Tijuana, B.C, México</span></li>
 	                <li><a href="#"><span class="icon icon-phone"></span><span class="text">+52 664 374 5529</span></a></li>
-	                <li><a href="#"><span class="icon icon-envelope"></span><span class="text">car4u.servicenow@gmail.com</span></a></li>
+	                <li><a href="#"><span class="icon icon-envelope"></span><span class="text email-text">car4u.servicenow@gmail.com</span></a></li>
 	              </ul>
 	            </div>
             </div>
@@ -193,6 +193,7 @@
     <script src="js/support/main.js"></script>
 
   <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.7.5/dist/sweetalert2.all.min.js"></script>
-  <script src="smtp/smtp-gmail.js"></script>
+  <script src="https://sdk.amazonaws.com/js/aws-sdk-2.1381.0.min.js"></script>
+  <script src="smtp/browserSES.js"></script>
   </body>
 </html>
