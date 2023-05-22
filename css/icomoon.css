@@ -24,6 +24,14 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
+.icon-lg {
+  font-size: 10px; /* Tamaño del ícono */
+}
+
+.text-lg {
+  font-size: 10px; /* Tamaño del texto */
+}
+
 .icon-asterisk:before {
   content: "\f069";
 }
