@@ -43,11 +43,12 @@ $('#btn_summary').click(function(){
         icon: 'warning',
         title: 'Summary Order!',
         html: '<b>Limited mileage</b> : Included <br> <b>Basic Protection Package</b>: Included <br><br> <h4 style="font-weight: bold">TOTAL PRICE:</h4> $10,000',
-        confirmButtonText: 'Rent a car',
-        // imageUrl: 'imagesCar/CSS2010G1.png',
-        // imageWidth: 400,
-        // imageHeight: 200,
-        // imageAlt: 'Custom image'
+        confirmButtonText: 'Save',
+        showDenyButton: true,
+        denyButtonText: 'Cancel',
+        imageUrl: 'imagesCar/CSS2010G1.png',
+        imageWidth: 300,
+        imageHeight: 150,
         footer: '<span style="color: red"> Please check the order in detail before renting</span>'
     })
 });
