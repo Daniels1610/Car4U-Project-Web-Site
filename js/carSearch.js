@@ -1,17 +1,22 @@
 const searchBtn = document.querySelector(".search-btn");
-const locationInput = document.getElementById("location");
-const pickupInput = document.querySelector(".pickup-Date");
-const dropoffInput = document.querySelector(".dropoff-Date");
+const locationInput = document.getElementById("location").value;
+const pickupInput = document.querySelector(".pickup-Date").value;
+const dropoffInput = document.querySelector(".dropoff-Date").value;
+let timerInterval;
 
 searchBtn.addEventListener("click", (e) => {
     e.preventDefault();
-    const locationValue = locationInput.value;
-    localStorage.setItem('location', locationValue);
+    if (!pickupInput | !dropoffInput) {
+        dateAlert();
+        return;
+    }
+    localStorage.setItem('location', locationInput);
+    localStorage.setItem('pickupDate', pickupInput);
+    localStorage.setItem('dropOff', dropoffInput);
     searchAlert();
 });
 
 const searchAlert = () => {
-    let timerInterval;
     Swal.fire({
         title: 'Searching Car',
         html: 'Looking for your perfect deal',
@@ -30,4 +35,13 @@ const searchAlert = () => {
             window.location.href = "selection.html";
         }
         })
+};
+
+const dateAlert = () => {
+    Swal.fire(
+        'Missing Date',
+        'Make sure to enter a valid<br>' + 
+        'Pick-Up Date and Drop-Off Date',
+        'question'
+      )
 };
