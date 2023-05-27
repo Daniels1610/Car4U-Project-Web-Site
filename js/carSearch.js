@@ -14,7 +14,7 @@ searchBtn.addEventListener("click", (e) => {
         dateExpiredAlert(); return;
     } 
 
-    localStorage.setItem('location', locationInput);
+    localStorage.setItem('location', locationInput.value);
     localStorage.setItem('pickupDate', pickupInput);
     localStorage.setItem('dropOff', dropoffInput);
     searchAlert();
