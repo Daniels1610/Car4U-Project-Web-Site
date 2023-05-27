@@ -1,6 +1,7 @@
 const locationEntered = localStorage.getItem('location');
+const pickupDate = localStorage.getItem('pickupDate');
+const dropoffDate = localStorage.getItem('dropoffDate');
 const examplBtn = document.querySelector(".show-example-btn");
-console.log(locationEntered);
 
 const searchCar = (location) => {
     const url = `https://78yx1lyjbb.execute-api.us-east-1.amazonaws.com/dev/cars?location=${cities[location]}`;
@@ -38,6 +39,7 @@ const cities = {
     'Ensenada' : 'ENS'
 }
 
+// TODO: BOTON QUE VA DESPUÉS DEL CHECKOUT
 $('#btn_summary').click(function(){
     Swal.fire({
         icon: 'warning',
