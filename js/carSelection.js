@@ -39,6 +39,7 @@ const cities = {
     'Ensenada' : 'ENS'
 }
 
+// TODO: BOTON QUE VA DESPUÉS DEL CHECKOUT
 $('#btn_summary').click(function(){
     Swal.fire({
         icon: 'warning',
