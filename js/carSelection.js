@@ -1,7 +1,6 @@
 const locationEntered = localStorage.getItem('location');
 const pickupDate = localStorage.getItem('pickupDate');
 const dropoffDate = localStorage.getItem('dropoffDate');
-const examplBtn = document.querySelector(".show-example-btn");
 
 const searchCar = (location) => {
     const url = `https://78yx1lyjbb.execute-api.us-east-1.amazonaws.com/dev/cars?location=${cities[location]}`;
@@ -54,6 +53,5 @@ $('#btn_summary').click(function(){
         footer: '<span style="color: red"> Please check the order in detail before renting</span>'
     })
 });
-
 
 searchCar(locationEntered);
