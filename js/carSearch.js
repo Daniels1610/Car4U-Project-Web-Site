@@ -6,17 +6,21 @@ let timerInterval;
 
 searchBtn.addEventListener("click", (e) => {
     e.preventDefault();
-    if (!pickupInput.value | !dropoffInput.value) {
+    const locationValue = locationInput.value;
+    const pickupValue = pickupInput.value;
+    const dropoffValue = dropoffInput.value;
+
+    if (!pickupValue | !dropoffValue) {
         dateAlert(); return;
     }
 
-    if(!dropoffDateValidation(pickupInput.value, dropoffInput.value)) {
+    if(!dropoffDateValidation(pickupValue, dropoffValue)) {
         dateExpiredAlert(); return;
     } 
 
-    localStorage.setItem('location', locationInput.value);
-    localStorage.setItem('pickupDate', pickupInput);
-    localStorage.setItem('dropOff', dropoffInput);
+    localStorage.setItem('location', locationValue);
+    localStorage.setItem('pickupDate', pickupValue);
+    localStorage.setItem('dropoffDate', dropoffValue);
     searchAlert();
 });
 
