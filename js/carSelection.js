@@ -38,6 +38,13 @@ const searchCar = (location) => {
                     </div>
                 `;
                 cardRow.appendChild(cardElement);
+
+                const bookBtnList = document.getElementsByClassName("book-btn");
+                for (let i = 0; i < bookBtnList.length; i++){
+                    bookBtnList[i].addEventListener("click", function() {
+                        booknowAlert();
+                    });
+                }
             });
         })
         .catch(error => console.log(error));
@@ -47,7 +54,7 @@ const booknowAlert = () => {
     Swal.fire({
         title: 'Starting your Rent Process',
         html: 'We will start with a Driver Information Form',
-        timer: 1000,
+        timer: 2000,
         timerProgressBar: true,
         allowEscapeKey: false,
         allowOutsideClick: false,
@@ -61,7 +68,7 @@ const booknowAlert = () => {
         }
         }).then((result) => {
         if (result.dismiss === Swal.DismissReason.timer) {
-            window.location.href = "carDriverForm.html";
+            window.location.href = "driverForm.html";
         }
         })
 }
@@ -82,15 +89,6 @@ bodyElement.prepend(cityTitle);
 searchCar(locationEntered);
 
 const carsColumns = document.getElementsByClassName("card");
-// carsColumns.forEach(cardElement => {
-//     console.log(cardElement.childNodes);
-// })
 
-// for (var i = 0; i < buttonsList.length; i++){
-//     buttonsList[i].addEventListener("click", function(){
-//     var buttonInnerHTML = this.innerHTML;
-//     switchPlayAudios(buttonInnerHTML);
-//     });
-// }
-console.log(carsColumns);
+
 
