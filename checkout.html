@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Select your Car!</title>
+    <link href="https://cdn.jsdelivr.net/npm/sweetalert2@11.7.5/dist/sweetalert2.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/style.css">
+    <link href="https://fonts.googleapis.com/css?family=Poppins:200,300,400,500,600,700,800&display=swap"
+        rel="stylesheet">
+
+    <link rel="stylesheet" href="css/open-iconic-bootstrap.min.css">
+    <link rel="stylesheet" href="css/animate.css">
+
+    <link rel="stylesheet" href="css/owl.carousel.min.css">
+    <link rel="stylesheet" href="css/owl.theme.default.min.css">
+    <link rel="stylesheet" href="css/magnific-popup.css">
+
+    <link rel="stylesheet" href="css/aos.css">
+
+    <link rel="stylesheet" href="css/ionicons.min.css">
+
+    <link rel="stylesheet" href="css/bootstrap-datepicker.css">
+    <link rel="stylesheet" href="css/jquery.timepicker.css">
+
+
+    <link rel="stylesheet" href="css/flaticon.css">
+    <link rel="stylesheet" href="css/icomoon.css">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+    <section>
+        <div class="container mt-5">
+            <hr class="my-4" color="black">
+            <div class="row">
+                <div class="col-8">
+                    <h4 class="mb-3">Payment</h4>
+                    <div class="my-3">
+                        <div class="form-check">
+                            <input id="credit" name="paymentMethod" type="radio" class="form-check-input" checked required>
+                            <label class="form-check-label" for="credit">Credit card</label>
+                        </div>
+                        <div class="form-check">
+                            <input id="debit" name="paymentMethod" type="radio" class="form-check-input" required>
+                            <label class="form-check-label" for="debit">Debit card</label>
+                        </div>
+                        <div class="form-check">
+                            <input id="paypal" name="paymentMethod" type="radio" class="form-check-input" required>
+                            <label class="form-check-label" for="paypal">PayPal</label>
+                        </div>
+                    </div>
+                
+                    <div class="row gy-3">
+                        <div class="col-md-6">
+                            <label for="cc-name" class="form-label">Name on card</label>
+                            <input type="text" class="form-control card-holder-input" id="cc-name" placeholder="" required>
+                            <small class="text-body-secondary">Full name as displayed on card</small>
+                            <div class="invalid-feedback">
+                                Name on card is required
+                            </div>
+                        </div>
+
+                        <div class="col-md-6">
+                            <label for="cc-number" class="form-label">Credit card number</label>
+                            <input type="text" maxlength="16" class="form-control card-number-input" id="cc-number" placeholder="" required>
+                            <div class="invalid-feedback">
+                                Credit card number is required
+                            </div>
+                        </div>
+
+                        <!-- <div class="col-md-3">
+                            <label for="cc-expiration" class="form-label">Expiration</label>
+                            <input type="text" class="form-control" id="cc-expiration" placeholder="" required>
+                            <div class="invalid-feedback">
+                                Expiration date required
+                            </div>
+                        </div> -->
+                        <div class="col-md-5">
+                            <label for="country" class="form-label">EXPIRATION MM</label>
+                            <select class="form-select" id="country" required>
+                              <option value="">MM</option>
+                              <option>01</option>
+                              <option>02</option>
+                              <option>03</option>
+                              <option>04</option>
+                              <option>05</option>
+                              <option>06</option>
+                              <option>07</option>
+                              <option>08</option>
+                              <option>09</option>
+                              <option>10</option>
+                              <option>11</option>
+                              <option>12</option>
+                            </select>
+                            <div class="invalid-feedback">
+                              Please select a valid country.
+                            </div>
+                        </div>
+
+                        <div class="col-md-4">
+                            <label for="state" class="form-label">EXPIRATION YY</label>
+                            <select class="form-select" id="state" required>
+                              <option value="">YEAR</option>
+                              <option>2023</option>
+                              <option>2024</option>
+                              <option>2025</option>
+                              <option>2026</option>
+                              <option>2027</option>
+                              <option>2028</option>
+                              <option>2029</option>
+                              <option>2030</option>
+                            </select>
+                            <div class="invalid-feedback">
+                              Please provide a valid state.
+                            </div>
+                        </div>
+                        
+                        <div class="col-md-3">
+                            <label for="cc-cvv" class="form-label">CVV</label>
+                            <input type="text" maxlength="3" class="form-control" id="cc-cvv" placeholder="" required>
+                            <div class="invalid-feedback">
+                                Security code required
+                            </div>
+
+                        </div>
+                    </div>
+                        <!-- <div class="col-md-3 dropdown w-100">
+                            <a class="btn btn-secondary dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            </a>
+                          
+                            <ul class="dropdown-menu">
+                              <li><a class="dropdown-item" href="#">Action</a></li>
+                              <li><a class="dropdown-item" href="#">Another action</a></li>
+                              <li><a class="dropdown-item" href="#">Something else here</a></li>
+                            </ul>
+                          </div> -->
+                    
+                    <hr class="my-4">
+                    <button class="w-100 btn btn-primary btn-lg" type="submit">Continue to checkout</button>
+                </div>
+                <div class="col-4">
+                        <div class="text-center">
+                            <img src="./imagesCar/DCS2014G1.jpg" alt="" class="rounded img-fluid">
+                            <h6 class="text-dark fw-bold mt-3">Dogde Charger or similar</h6>
+                        </div>
+                        <h4 class="d-flex justify-content-between align-items-center mb-3">
+                        <span class="text-primary">Rent Locations</span></h4>
+
+                        <h5 class="d-flex"><span class="text-secondary text-left">Pick up Location</span></h5>
+                        <h6 class="d-flex justify-content-between align-items-center">
+                            <span class="text-info text-center">Tijuana</span>
+                            <span class="text-success text-center">May, 21 2023</span>
+                        </h6>
+
+                        <h5 class="d-flex"><span class="text-secondary text-left">Drop Off Location</span></h5>
+                        <h6 class="d-flex justify-content-between align-items-center">
+                            <span class="text-info text-center">Tijuana</span>
+                            <span class="text-danger text-center">May, 21 2023</span>
+                        </h6>
+                        
+                        <h4 class="d-flex justify-content-between align-items-center mb-3">
+                          <span class="text-primary">Your cart</span>
+                          <span class="badge bg-primary rounded-pill">3</span>
+                        </h4>
+                        <ul class="list-group mb-3">
+                          <li class="list-group-item d-flex justify-content-between lh-sm">
+                            <div>
+                              <h6 class="my-0">March Sense Aut o similar</h6>
+                              <small class="text-body-secondary">Brief description</small>
+                            </div>
+                            <span class="text-body-secondary">$12</span>
+                          </li>
+                          <li class="list-group-item d-flex justify-content-between lh-sm">
+                            <div>
+                              <h6 class="my-0">Second product</h6>
+                              <small class="text-body-secondary">Brief description</small>
+                            </div>
+                            <span class="text-body-secondary">$8</span>
+                          </li>
+                          <li class="list-group-item d-flex justify-content-between lh-sm">
+                            <div>
+                              <h6 class="my-0">Third item</h6>
+                              <small class="text-body-secondary">Brief description</small>
+                            </div>
+                            <span class="text-body-secondary">$5</span>
+                          </li>
+                          <li>
+                            <h4 class="list-group-item d-flex justify-content-between border-5 border-success">
+                                <span>Total (USD)</span>
+                                <strong>$20</strong>
+                            </h4>
+                          </li>
+                        </ul>
+
+                        <div class="card">
+                            <div class="card-header">
+                              The Order Include
+                            </div>
+                            <ul class="list-group list-group-flush">
+                              <li class="list-group-item">- Base rate</li>
+                              <li class="list-group-item">- Unlimited Mileage</li>
+                              <li class="list-group-item">- Base Protection Package</li>
+                            </ul>
+                          </div>
+                </div>
+            </div>
+        </div>
+       
+    </section>
+</body>
+
+</html>
