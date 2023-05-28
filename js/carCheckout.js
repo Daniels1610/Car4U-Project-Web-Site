@@ -40,6 +40,7 @@ $('#checkout_button').click(function(){
                 html: 'Give us a moment, we are processing your Rent',
                 timer: 2000,
                 timerProgressBar: true,
+                allowOutsideClick: false,
                 allowEscapeKey: false,
                 didOpen: () => {
                     Swal.showLoading()
@@ -51,11 +52,14 @@ $('#checkout_button').click(function(){
                 }
                 }).then((result) => {
                 if (result.dismiss === Swal.DismissReason.timer) {
-                    Swal.fire(
-                        'Rent Completed',
-                        'Your Rent has been Successful<br>Thank you for Renting on Car4U!',
-                        'success'
-                    ).then((result) => {
+                    Swal.fire({
+                        timerProgressBar: true,
+                        allowOutsideClick: false,
+                        title: 'Rent Completed',
+                        html: 'Your Rent has been Successful<br>Thank you for Renting on Car4U!',
+                        icon: 'success',
+                        confirmButtonText : 'OK'
+                    }).then((result) => {
                         if(result.isConfirmed) {
                             window.location.href = "index.html"
                         }
