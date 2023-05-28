@@ -31,6 +31,7 @@ const searchAlert = () => {
         timer: 2000,
         timerProgressBar: true,
         allowEscapeKey: false,
+        allowOutsideClick: false,
         didOpen: () => {
             Swal.showLoading()
             timerInterval = setInterval(() => {
