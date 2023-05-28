@@ -1,7 +1,8 @@
 const locationEntered = localStorage.getItem('location');
 const pickupDate = localStorage.getItem('pickupDate');
 const dropoffDate = localStorage.getItem('dropoffDate');
-const examplBtn = document.querySelector(".show-example-btn");
+const cardRow = document.getElementById("card_row");
+const bodyElement = document.querySelector("body");
 
 const searchCar = (location) => {
     const url = `https://78yx1lyjbb.execute-api.us-east-1.amazonaws.com/dev/cars?location=${cities[location]}`;
@@ -11,24 +12,33 @@ const searchCar = (location) => {
             return res.json();
         })
         .then(data => {
-            let tableData = "";
+            cardRow.innerHTML = ""
             data.Items.forEach(item => {
-                let year = JSON.stringify(item.Year.N);
-                let maker = JSON.stringify(item.Manufacturer.S);
-                let model = JSON.stringify(item.Model.S);
-                let type = JSON.stringify(item.Type.S);
-                let price = JSON.stringify(item.DailyRate.N);
-                    
-                tableData += 
-                `<tr>
-                    <td>${JSON.parse(year)}</td>
-                    <td>${JSON.parse(maker)}</td>
-                    <td>${JSON.parse(model)}</td>
-                    <td>${JSON.parse(type)}</td>
-                    <td>${JSON.parse(price)}</td>
-                </tr>`;
+                let id = JSON.parse(JSON.stringify(item.Id.S));
+                let year = JSON.parse(JSON.stringify(item.Year.N));
+                let maker = JSON.parse(JSON.stringify(item.Manufacturer.S));
+                let model = JSON.parse(JSON.stringify(item.Model.S));
+                let type = JSON.parse(JSON.stringify(item.Type.S));
+                let price = JSON.parse(JSON.stringify(item.DailyRate.N));
+                
+                let cardElement = document.createElement("div");
+                cardElement.classList.add("col-md-6");
+                cardElement.classList.add("mb-4");
+                cardElement.innerHTML =
+                `
+                    <div class="card">
+                        <img src="imagesCar/${id}.png" class="card-img-top" alt="${model} ${year}">
+                        <div class="card-body">
+                            <h5 class="card-title">${model} ${year} or Similar</h5>
+                            <p class="card-text">Maker: ${maker}</p>
+                            <p class="card-text">Type: ${type}</p>
+                            <p class="card-text">Price: $${price}</p>
+                            <button type="button" class="btn btn-primary btn-sm btn-block" id="btn_summary">Book Now!</button>
+                        </div>
+                    </div>
+                `;
+                cardRow.appendChild(cardElement);
             });
-            document.getElementById("table_body").innerHTML = tableData;
         })
         .catch(error => console.log(error));
 };
@@ -55,5 +65,10 @@ $('#btn_summary').click(function(){
     })
 });
 
+let cityTitle =  document.createElement("h1");
+cityTitle.classList.add("text-center");
+cityTitle.classList.add("p-4");
+cityTitle.textContent = `Cars in ${locationEntered}`;
+bodyElement.prepend(cityTitle);
 
 searchCar(locationEntered);

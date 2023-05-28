@@ -10052,3 +10052,8 @@ textarea.form-control {
 .email-text {
   padding-left: 1rem;
 }
+
+.choose-title {
+  padding: 2rem;
+  margin-left: 3rem;
+}
