@@ -30,6 +30,7 @@ const searchAlert = () => {
         html: 'Looking for your perfect deal',
         timer: 2000,
         timerProgressBar: true,
+        allowEscapeKey: false,
         didOpen: () => {
             Swal.showLoading()
             timerInterval = setInterval(() => {

@@ -49,8 +49,6 @@ const cities = {
     'Ensenada' : 'ENS'
 }
 
-
-
 let cityTitle =  document.createElement("h1");
 cityTitle.classList.add("text-center");
 cityTitle.classList.add("p-4");
