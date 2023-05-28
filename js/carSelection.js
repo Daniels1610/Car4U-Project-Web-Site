@@ -26,14 +26,14 @@ const searchCar = (location) => {
                 cardElement.classList.add("mb-4");
                 cardElement.innerHTML =
                 `
-                    <div class="card">
+                    <div id=${id} class="card">
                         <img src="imagesCar/${id}.png" class="card-img-top" alt="${model} ${year}">
                         <div class="card-body">
                             <h5 class="card-title">${model} ${year} or Similar</h5>
                             <p class="card-text">Maker: ${maker}</p>
                             <p class="card-text">Type: ${type}</p>
                             <p class="card-text">Price: $${price}</p>
-                            <button type="button" class="btn btn-primary btn-sm btn-block" id="btn_summary">Book Now!</button>
+                            <button type="button" class="book-btn btn btn-primary btn-sm btn-block ">Book Now!</button>
                         </div>
                     </div>
                 `;
@@ -43,27 +43,34 @@ const searchCar = (location) => {
         .catch(error => console.log(error));
 };
 
+const booknowAlert = () => {
+    Swal.fire({
+        title: 'Starting your Rent Process',
+        html: 'We will start with a Driver Information Form',
+        timer: 1000,
+        timerProgressBar: true,
+        allowEscapeKey: false,
+        allowOutsideClick: false,
+        didOpen: () => {
+            Swal.showLoading()
+            timerInterval = setInterval(() => {
+            }, 100)
+        },
+        willClose: () => {
+            clearInterval(timerInterval)
+        }
+        }).then((result) => {
+        if (result.dismiss === Swal.DismissReason.timer) {
+            window.location.href = "carDriverForm.html";
+        }
+        })
+}
+
 const cities = {
     'Tijuana' : 'TIJ',
     'Mexicali' : 'MXL',
     'Ensenada' : 'ENS'
 }
-
-// TODO: BOTON QUE VA DESPUÉS DEL CHECKOUT
-$('#btn_summary').click(function(){
-    Swal.fire({
-        title: 'Summary Order!',
-        html: '<div style="display: flex;"><div style="flex: 1;"><b>Delivery:</b><br>Tijuana<br>27, May 2023</div><div style="flex: 1;"><b>Return:</b><br>Tijuana<br>30, May 2023</div></div> <br> <b>Unlimited mileage</b> : Included <br> <b>Basic Protection Package</b>: Included <br><br> <h4 style="font-weight: bold; color: green">TOTAL PRICE:</h4> $10,000 DLLS',
-        confirmButtonText: 'Pay now!',
-        confirmButtonColor: 'green',
-        showDenyButton: true,
-        denyButtonText: 'Cancel',
-        imageUrl: 'imagesCar/CSS2010G1.png',
-        imageWidth: 300,
-        imageHeight: 150,
-        footer: '<span style="color: red"> Please check the order in detail before renting</span>'
-    })
-});
 
 let cityTitle =  document.createElement("h1");
 cityTitle.classList.add("text-center");
@@ -71,4 +78,19 @@ cityTitle.classList.add("p-4");
 cityTitle.textContent = `Cars in ${locationEntered}`;
 bodyElement.prepend(cityTitle);
 
+
 searchCar(locationEntered);
+
+const carsColumns = document.getElementsByClassName("card");
+// carsColumns.forEach(cardElement => {
+//     console.log(cardElement.childNodes);
+// })
+
+// for (var i = 0; i < buttonsList.length; i++){
+//     buttonsList[i].addEventListener("click", function(){
+//     var buttonInnerHTML = this.innerHTML;
+//     switchPlayAudios(buttonInnerHTML);
+//     });
+// }
+console.log(carsColumns);
+
