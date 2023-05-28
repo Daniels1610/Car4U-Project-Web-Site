@@ -81,7 +81,7 @@ bodyElement.prepend(cityTitle);
 
 searchCar(locationEntered);
 
-const carsColumns = document.getElementsByClassName(".card");
+const carsColumns = document.getElementsByClassName("card");
 // carsColumns.forEach(cardElement => {
 //     console.log(cardElement.childNodes);
 // })
