@@ -1,3 +1,8 @@
+const selectedCarID = localStorage.getItem('selectedCarID');
+const carImage = document.querySelector('.car-image');
+
+carImage.src = `imagesCar/${selectedCarID}.png`;
+
 $(document).ready(function() {
     $('#btn_driverForm').click(function(e) {
       e.preventDefault(); // Evita que se realice la acción predeterminada del enlace

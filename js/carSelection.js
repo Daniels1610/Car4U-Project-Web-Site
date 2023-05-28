@@ -26,14 +26,14 @@ const searchCar = (location) => {
                 cardElement.classList.add("mb-4");
                 cardElement.innerHTML =
                 `
-                    <div id=${id} class="card">
+                    <div class="card">
                         <img src="imagesCar/${id}.png" class="card-img-top" alt="${model} ${year}">
                         <div class="card-body">
                             <h5 class="card-title">${model} ${year} or Similar</h5>
                             <p class="card-text">Maker: ${maker}</p>
                             <p class="card-text">Type: ${type}</p>
                             <p class="card-text">Price: $${price}</p>
-                            <button type="button" class="book-btn btn btn-primary btn-sm btn-block ">Book Now!</button>
+                            <button id=${id} type="button" class="book-btn btn btn-primary btn-sm btn-block ">Book Now!</button>
                         </div>
                     </div>
                 `;
@@ -42,9 +42,12 @@ const searchCar = (location) => {
                 const bookBtnList = document.getElementsByClassName("book-btn");
                 for (let i = 0; i < bookBtnList.length; i++){
                     bookBtnList[i].addEventListener("click", function() {
+                        localStorage.setItem('selectedCarID', this.id);
                         booknowAlert();
                     });
                 }
+
+
             });
         })
         .catch(error => console.log(error));
@@ -88,7 +91,6 @@ bodyElement.prepend(cityTitle);
 
 searchCar(locationEntered);
 
-const carsColumns = document.getElementsByClassName("card");
 
 
 
