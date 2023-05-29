@@ -18,7 +18,7 @@ $("#btn_continue").click(() => {
   driverInformation.state = $("#state").val();
   driverInformation.postCode = $("#post-code").val();
 
-  localStorage.setItem("driverInformation", driverInformation);
+  sessionStorage.setItem("driverInformation", JSON.stringify(driverInformation));
 });
 
 const searchCarByID = (carID) => {
@@ -42,6 +42,8 @@ const searchCarByID = (carID) => {
       $(".drop-location").text(`${carData.location}`);
       $(".car-price").text(`$${carData.price * rentDays}`);
 
+      sessionStorage.setItem('carData', JSON.stringify(carData));
+
     })
     .catch(error => console.log(error));
 
@@ -55,7 +57,7 @@ const reformatDate = (dateString) => {
 }
 
 const dailyRateByDays = (pickDate, dropDate) => {
-  const pickDateF = new Date(reformatDate(pickupDate));
+  const pickDateF = new Date(reformatDate(pickDate));
   const dropDateF = new Date(reformatDate(dropDate));
   const timeDiff = Math.abs(dropDateF.getTime() - pickDateF.getTime());
   const daysDiff = Math.ceil(timeDiff / (1000 * 3600 * 24));
@@ -66,4 +68,5 @@ const dailyRateByDays = (pickDate, dropDate) => {
 $(".pick-date").text(`${pickupDate}`)
 $(".drop-date").text(`${dropoffDate}`)
 searchCarByID(selectedCarID);
+
 

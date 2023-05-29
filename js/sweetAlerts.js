@@ -36,27 +36,59 @@ $('#btn_car4u_selection').click(function(e) {
 });
 
 $(document).ready(function() {
-    $('#btn_continue').click(function() {
-      Swal.fire({
-        title: 'Saving driver information',
-        timer: 1000,
-        timerProgressBar: true,
-        allowEscapeKey: false,
-        allowOutsideClick: false,
-        didOpen: () => {
-          Swal.showLoading();
-          timerInterval = setInterval(() => {}, 100);
-        },
-        willClose: () => {
-          clearInterval(timerInterval);
+    $('#btn_continue').submit(function(e) {
+        e.preventDefault(); 
+
+        var inputFecha = $('#date').val();
+        var fechaNacimiento = new Date(inputFecha);
+        var fechaActual = new Date();
+
+        // Obtener la fecha hace 18 años
+        var fechaMinima = new Date();
+        fechaMinima.setFullYear(fechaMinima.getFullYear() - 18);
+
+       
+        if (fechaNacimiento > fechaMinima) {
+            Swal.fire({
+                title: 'Error',
+                text: 'Debes tener al menos 18 años.',
+                icon: 'error'
+            });
+            return;
         }
-      }).then((result) => {
-        if (result.dismiss === Swal.DismissReason.timer) {
-          window.location.href = 'checkout.html';
+
+      
+        if (fechaNacimiento > fechaActual) {
+            Swal.fire({
+                title: 'Error',
+                text: 'La fecha de nacimiento no puede ser posterior a la fecha actual.',
+                icon: 'error'
+            });
+            return;
         }
-      });
+
+        Swal.fire({
+            title: 'Saving driver information',
+            html: 'We will start with a Checkout Form',
+            timer: 2000,
+            timerProgressBar: true,
+            allowEscapeKey: false,
+            allowOutsideClick: false,
+            didOpen: () => {
+                Swal.showLoading();
+                timerInterval = setInterval(() => {}, 100);
+            },
+            willClose: () => {
+                clearInterval(timerInterval);
+            }
+        }).then((result) => {
+            if (result.dismiss === Swal.DismissReason.timer) {
+                window.location.href = "checkout.html";
+            }
+        });
     });
-  });
+});
+
 
 $('#checkout_button').click(function(){
 Swal.fire({
