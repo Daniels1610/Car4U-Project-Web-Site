@@ -5,7 +5,7 @@ const cardRow = document.getElementById("card_row");
 const bodyElement = document.querySelector("body");
 
 const searchCar = (location) => {
-    const url = `https://78yx1lyjbb.execute-api.us-east-1.amazonaws.com/dev/cars?location=${cities[location]}`;
+    const url = `https://azp9iify5c.execute-api.us-east-1.amazonaws.com/dev/cars?location=${cities[location]}`;
     
     fetch(url)
         .then(res => {
@@ -88,8 +88,8 @@ cityTitle.classList.add("p-4");
 cityTitle.textContent = `Cars in ${locationEntered}`;
 bodyElement.prepend(cityTitle);
 
-
 searchCar(locationEntered);
+
 
 
 
