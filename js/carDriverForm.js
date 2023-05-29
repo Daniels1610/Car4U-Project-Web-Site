@@ -57,7 +57,7 @@ const reformatDate = (dateString) => {
 }
 
 const dailyRateByDays = (pickDate, dropDate) => {
-  const pickDateF = new Date(reformatDate(pickupDate));
+  const pickDateF = new Date(reformatDate(pickDate));
   const dropDateF = new Date(reformatDate(dropDate));
   const timeDiff = Math.abs(dropDateF.getTime() - pickDateF.getTime());
   const daysDiff = Math.ceil(timeDiff / (1000 * 3600 * 24));
