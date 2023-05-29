@@ -1,20 +1,9 @@
 const selectedCarID = localStorage.getItem('selectedCarID');
 const carImage = document.querySelector('.car-image');
 
-carImage.src = `imagesCar/${selectedCarID}.png`;
+const driverInformation = {};
 
-// DRIVER INFORMATION
-const driverInformation = {
-  name: "",
-  lastname: "",
-  email: "",
-  phone : "",
-  date : "", 
-  street : "",
-  city : "",
-  state : "",
-  postCode : ""
-};
+carImage.src = `imagesCar/${selectedCarID}.png`;
 
 $("#btn_continue").click(() => {
   driverInformation.name = $("#name").val();
@@ -29,3 +18,32 @@ $("#btn_continue").click(() => {
 
   localStorage.setItem("driverInformation", driverInformation);
 });
+
+const searchCarByID = (carID) => {
+  const url = `https://azp9iify5c.execute-api.us-east-1.amazonaws.com/dev/cars/${carID}`;
+  
+  fetch(url)
+    .then(res => {
+        return res.json();
+    })
+    .then(data => {
+      let model = JSON.parse(JSON.stringify(data.Item.Model.S));
+      let year = JSON.parse(JSON.stringify(data.Item.Year.N));
+      let location = JSON.parse(JSON.stringify(data.Item.Location.S));
+      let price = JSON.parse(JSON.stringify(data.Item.DailyRate.N));
+      
+      const carData = {model : model, year : year, location : location, price : price};
+
+      $(".car-model-text").text(`${carData.model} o similar`);
+      $(".pick-location").text(`${carData.location}`);
+      $(".drop-location").text(`${carData.location}`);
+      $(".car-price").text(`$${carData.price}`);
+
+    })
+    .catch(error => console.log(error));
+
+    
+};
+
+searchCarByID(selectedCarID);
+
