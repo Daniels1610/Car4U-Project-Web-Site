@@ -5,7 +5,7 @@ const cardRow = document.getElementById("card_row");
 const bodyElement = document.querySelector("body");
 
 const searchCar = (location) => {
-    const url = `https://78yx1lyjbb.execute-api.us-east-1.amazonaws.com/dev/cars?location=${cities[location]}`;
+    const url = `https://azp9iify5c.execute-api.us-east-1.amazonaws.com/dev/cars?location=${cities[location]}`;
     
     fetch(url)
         .then(res => {
@@ -33,15 +33,48 @@ const searchCar = (location) => {
                             <p class="card-text">Maker: ${maker}</p>
                             <p class="card-text">Type: ${type}</p>
                             <p class="card-text">Price: $${price}</p>
-                            <button type="button" class="btn btn-primary btn-sm btn-block" id="btn_summary">Book Now!</button>
+                            <button id=${id} type="button" class="book-btn btn btn-primary btn-sm btn-block ">Book Now!</button>
                         </div>
                     </div>
                 `;
                 cardRow.appendChild(cardElement);
+
+                const bookBtnList = document.getElementsByClassName("book-btn");
+                for (let i = 0; i < bookBtnList.length; i++){
+                    bookBtnList[i].addEventListener("click", function() {
+                        localStorage.setItem('selectedCarID', this.id);
+                        booknowAlert();
+                    });
+                }
+
+
             });
         })
         .catch(error => console.log(error));
 };
+
+const booknowAlert = () => {
+    Swal.fire({
+        title: 'Starting your Rent Process',
+        html: 'We will start with a Driver Information Form',
+        timer: 2000,
+        timerProgressBar: true,
+        allowEscapeKey: false,
+        allowOutsideClick: false,
+        didOpen: () => {
+            Swal.showLoading()
+            timerInterval = setInterval(() => {
+            }, 100)
+        },
+        willClose: () => {
+            clearInterval(timerInterval)
+        }
+        }).then((result) => {
+        if (result.dismiss === Swal.DismissReason.timer) {
+            window.location.href = "driverForm.html";
+        }
+        })
+}
 
 const cities = {
     'Tijuana' : 'TIJ',
@@ -56,3 +89,8 @@ cityTitle.textContent = `Cars in ${locationEntered}`;
 bodyElement.prepend(cityTitle);
 
 searchCar(locationEntered);
+
+
+
+
+

@@ -38,13 +38,12 @@
 </head>
 
 
-
 <body>
     <nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light" id="ftco-navbar">
-        <div class="container">
-            <a class="navbar-brand" href="index.html"><span style="color:black">Car</span><span>4</span><span
-                    style="color:black">U</span></a>
-        </div>
+	    <div class="container">
+	      <a class="navbar-brand" id="btn_car4u" href="#"><span style="color:black">Car</span><span>4</span><span style="color:black">U</span></a>
+
+       </div>
     </nav>
     <br>
     <section>
@@ -130,15 +129,15 @@
                     </div>
 
                     <div>
-                        <button class="w-100 btn btn-primary btn-lg continue-btn">Continue</button>
+                        <button class="w-100 btn btn-primary btn-lg" id="btn_continue">Continue</button>
                     </div>
                     <br>
 
                 </div>
                 <div class="col-4">
                     <div class="text-center">
-                        <img src="./imagesCar/DCS2014G1.jpg" alt="" class="rounded img-fluid">
-                        <h6 class="text-dark fw-bold mt-3">Dogde Charger or similar</h6>
+                        <img src="" alt="Car Image" class="rounded img-fluid car-image">
+                        <h6 class="text-dark fw-bold mt-3 car-model-text"></h6>
                     </div>
                     <h4 class="d-flex justify-content-between align-items-center mb-3">
                         <span class="text-primary">Rent Locations</span>
@@ -146,46 +145,32 @@
 
                     <h5 class="d-flex"><span class="text-secondary text-left">Pick up Location</span></h5>
                     <h6 class="d-flex justify-content-between align-items-center">
-                        <span class="text-info text-center">Tijuana</span>
-                        <span class="text-success text-center">May, 21 2023</span>
+                        <span class="text-info text-center pick-location">Tijuana</span>
+                        <span class="text-success text-center pick-date"></span>
                     </h6>
 
                     <h5 class="d-flex"><span class="text-secondary text-left">Drop Off Location</span></h5>
                     <h6 class="d-flex justify-content-between align-items-center">
-                        <span class="text-info text-center">Tijuana</span>
-                        <span class="text-danger text-center">May, 21 2023</span>
+                        <span class="text-info text-center drop-location">Tijuana</span>
+                        <span class="text-danger text-center drop-date"></span>
                     </h6>
 
                     <h4 class="d-flex justify-content-between align-items-center mb-3">
                         <span class="text-primary">Your cart</span>
-                        <span class="badge bg-primary rounded-pill">3</span>
+                        <span class="badge bg-primary rounded-pill"></span>
                     </h4>
                     <ul class="list-group mb-3">
                         <li class="list-group-item d-flex justify-content-between lh-sm">
                             <div>
-                                <h6 class="my-0">March Sense Aut o similar</h6>
-                                <small class="text-body-secondary">Brief description</small>
+                                <h6 class="my-0 car-model-text"></h6>
+                                <br>
                             </div>
-                            <span class="text-body-secondary">$12</span>
-                        </li>
-                        <li class="list-group-item d-flex justify-content-between lh-sm">
-                            <div>
-                                <h6 class="my-0">Second product</h6>
-                                <small class="text-body-secondary">Brief description</small>
-                            </div>
-                            <span class="text-body-secondary">$8</span>
-                        </li>
-                        <li class="list-group-item d-flex justify-content-between lh-sm">
-                            <div>
-                                <h6 class="my-0">Third item</h6>
-                                <small class="text-body-secondary">Brief description</small>
-                            </div>
-                            <span class="text-body-secondary">$5</span>
+                            <span class="text-body-secondary car-price"></span>
                         </li>
                         <li>
                             <h4 class="list-group-item d-flex justify-content-between border-5 border-success">
                                 <span>Total (USD)</span>
-                                <strong>$20</strong>
+                                <strong class="car-price">$20</strong>
                             </h4>
                         </li>
                     </ul>
@@ -203,7 +188,16 @@
                 </div>
             </div>
         </div>
+      </section>
+  
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.7.5/dist/sweetalert2.all.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="js/carDriverForm.js"></script>
+    <script src="js/sweetAlerts.js"></script>
+
     </section>
+
 </body>
 
 </html>
