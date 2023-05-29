@@ -49,108 +49,112 @@
             <div class="row">
                 <div class="col-8">
                     <h4 class="mb-3">Payment</h4>
-                    <div class="my-3">
-                        <div class="form-check">
-                            <input id="credit" name="paymentMethod" type="radio" class="form-check-input" checked required>
-                            <label class="form-check-label" for="credit">Credit card</label>
-                        </div>
-                        <div class="form-check">
-                            <input id="debit" name="paymentMethod" type="radio" class="form-check-input" required>
-                            <label class="form-check-label" for="debit">Debit card</label>
-                        </div>
-                        <div class="form-check">
-                            <input id="paypal" name="paymentMethod" type="radio" class="form-check-input" required>
-                            <label class="form-check-label" for="paypal">PayPal</label>
-                        </div>
-                    </div>
-                
-                    <div class="row gy-3">
-                        <div class="col-md-6">
-                            <label for="cc-name" class="form-label">Name on card</label>
-                            <input type="text" class="form-control card-holder-input" id="cc-name" placeholder="" required>
-                            <small class="text-body-secondary">Full name as displayed on card</small>
-                            <div class="invalid-feedback">
-                                Name on card is required
-                            </div>
-                        </div>
 
-                        <div class="col-md-6">
-                            <label for="cc-number" class="form-label">Credit card number</label>
-                            <input type="text" maxlength="19" class="form-control card-number-input" id="cc-number" placeholder="" required>
-                            <div class="invalid-feedback">
-                                Credit card number is required
-                            </div>
-                        </div>
+                    <form id="checkout_button">
 
-                        <!-- <div class="col-md-3">
-                            <label for="cc-expiration" class="form-label">Expiration</label>
-                            <input type="text" class="form-control" id="cc-expiration" placeholder="" required>
-                            <div class="invalid-feedback">
-                                Expiration date required
-                            </div>
-                        </div> -->
-                        <div class="col-md-5">
-                            <label for="country" class="form-label">EXPIRATION MM</label>
-                            <select class="form-select" id="country" required>
-                              <option value="">MM</option>
-                              <option>01</option>
-                              <option>02</option>
-                              <option>03</option>
-                              <option>04</option>
-                              <option>05</option>
-                              <option>06</option>
-                              <option>07</option>
-                              <option>08</option>
-                              <option>09</option>
-                              <option>10</option>
-                              <option>11</option>
-                              <option>12</option>
-                            </select>
-                            <div class="invalid-feedback">
-                              Please select a valid country.
-                            </div>
-                        </div>
+                      <div class="my-3">
+                          <div class="form-check">
+                              <input id="credit" name="paymentMethod" type="radio" class="form-check-input" checked required>
+                              <label class="form-check-label" for="credit">Credit card</label>
+                          </div>
+                          <div class="form-check">
+                              <input id="debit" name="paymentMethod" type="radio" class="form-check-input" required>
+                              <label class="form-check-label" for="debit">Debit card</label>
+                          </div>
+                          <div class="form-check">
+                              <input id="paypal" name="paymentMethod" type="radio" class="form-check-input" required>
+                              <label class="form-check-label" for="paypal">PayPal</label>
+                          </div>
+                      </div>
+                  
+                      <div class="row gy-3">
+                          <div class="col-md-6">
+                              <label for="cc-name" class="form-label">Name on card</label>
+                              <input type="text" class="form-control card-holder-input" id="cc-name" placeholder="" required>
+                              <small class="text-body-secondary">Full name as displayed on card</small>
+                              <div class="invalid-feedback">
+                                  Name on card is required
+                              </div>
+                          </div>
 
-                        <div class="col-md-4">
-                            <label for="state" class="form-label">EXPIRATION YY</label>
-                            <select class="form-select" id="state" required>
-                              <option value="">YEAR</option>
-                              <option>2023</option>
-                              <option>2024</option>
-                              <option>2025</option>
-                              <option>2026</option>
-                              <option>2027</option>
-                              <option>2028</option>
-                              <option>2029</option>
-                              <option>2030</option>
-                            </select>
-                            <div class="invalid-feedback">
-                              Please provide a valid state.
-                            </div>
-                        </div>
-                        
-                        <div class="col-md-3">
-                            <label for="cc-cvv" class="form-label">CVV</label>
-                            <input type="text" maxlength="3" class="form-control" id="cc-cvv" placeholder="" required>
-                            <div class="invalid-feedback">
-                                Security code required
-                            </div>
+                          <div class="col-md-6">
+                              <label for="cc-number" class="form-label">Credit card number</label>
+                              <input type="text" maxlength="19" class="form-control card-number-input" id="cc-number" placeholder="" required>
+                              <div class="invalid-feedback">
+                                  Credit card number is required
+                              </div>
+                          </div>
 
-                        </div>
-                    </div>
-                        <!-- <div class="col-md-3 dropdown w-100">
-                            <a class="btn btn-secondary dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                            </a>
-                          
-                            <ul class="dropdown-menu">
-                              <li><a class="dropdown-item" href="#">Action</a></li>
-                              <li><a class="dropdown-item" href="#">Another action</a></li>
-                              <li><a class="dropdown-item" href="#">Something else here</a></li>
-                            </ul>
+                          <!-- <div class="col-md-3">
+                              <label for="cc-expiration" class="form-label">Expiration</label>
+                              <input type="text" class="form-control" id="cc-expiration" placeholder="" required>
+                              <div class="invalid-feedback">
+                                  Expiration date required
+                              </div>
                           </div> -->
-                    
-                    <hr class="my-4">
-                    <button class="w-100 btn btn-primary btn-lg" id="checkout_button" >Confirm your Rent</button>
+                          <div class="col-md-5">
+                              <label for="country" class="form-label">EXPIRATION MM</label>
+                              <select class="form-select" id="country" required>
+                                <option value="">MM</option>
+                                <option>01</option>
+                                <option>02</option>
+                                <option>03</option>
+                                <option>04</option>
+                                <option>05</option>
+                                <option>06</option>
+                                <option>07</option>
+                                <option>08</option>
+                                <option>09</option>
+                                <option>10</option>
+                                <option>11</option>
+                                <option>12</option>
+                              </select>
+                              <div class="invalid-feedback">
+                                Please select a valid country.
+                              </div>
+                          </div>
+
+                          <div class="col-md-4">
+                              <label for="state" class="form-label">EXPIRATION YY</label>
+                              <select class="form-select" id="state" required>
+                                <option value="">YEAR</option>
+                                <option>2023</option>
+                                <option>2024</option>
+                                <option>2025</option>
+                                <option>2026</option>
+                                <option>2027</option>
+                                <option>2028</option>
+                                <option>2029</option>
+                                <option>2030</option>
+                              </select>
+                              <div class="invalid-feedback">
+                                Please provide a valid state.
+                              </div>
+                          </div>
+                          
+                          <div class="col-md-3">
+                              <label for="cc-cvv" class="form-label">CVV</label>
+                              <input type="text" maxlength="3" class="form-control" id="cc-cvv" placeholder="" required>
+                              <div class="invalid-feedback">
+                                  Security code required
+                              </div>
+
+                          </div>
+                      </div>
+                          <!-- <div class="col-md-3 dropdown w-100">
+                              <a class="btn btn-secondary dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                              </a>
+                            
+                              <ul class="dropdown-menu">
+                                <li><a class="dropdown-item" href="#">Action</a></li>
+                                <li><a class="dropdown-item" href="#">Another action</a></li>
+                                <li><a class="dropdown-item" href="#">Something else here</a></li>
+                              </ul>
+                            </div> -->
+                      
+                      <hr class="my-4">
+                      <button type="submit" class="w-100 btn btn-primary btn-lg" id="checkout_button" >Confirm your Rent</button>
+                    </form>
                 </div>
 
                 <!-- <div class="col-4">
