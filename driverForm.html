@@ -54,21 +54,22 @@
                     <h4 class="mb-3">Driver Information</h4>
                     <p><span style="color: red;">Please answer the following fields *</span></p>
 
-                    <div class="formbold-mb-5">
-                        <label for="name" class="form-label"> Full Name <span style="color: red;">*</span></label>
-                        <input type="text" name="name" id="name" class="formbold-form-input" required />
-                    </div>
+                    <form id="btn_continue">
+
+                        <div class="formbold-mb-5">
+                            <label for="name" class="form-label"> First Name <span style="color: red;">*</span></label>
+                            <input type="text" name="name" id="name" class="formbold-form-input" required />
+                        </div>
 
                         <div class="formbold-mb-5">
                             <label for="lastname" class="form-label"> Last Name <span style="color: red;">*</span></label>
                             <input type="text" name="lastname" id="lastname" class="formbold-form-input" required />
                         </div>
 
-                    <div class="formbold-mb-5">
-                        <label for="email" class="form-label"> Email Address <span style="color: red;">*</span></label>
-                        <input type="email" name="email" id="email" class="formbold-form-input" required
-                            pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$" />
-                    </div>
+                        <div class="formbold-mb-5">
+                            <label for="email" class="form-label"> Email Address <span style="color: red;">*</span></label>
+                            <input type="email" name="email" id="email" class="formbold-form-input" required pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$" />
+                        </div>
 
                         <div class="formbold-mb-5">
                             <label for="phone" class="form-label"> Phone Number <span style="color: red;">*</span></label>
@@ -112,19 +113,19 @@
                             </div>
                         </div> 
 
-                    <div class="formbold-mb-5">
-                        <label for="document" class="form-label">
-                            Identity Document <span style="color: red;">*</span>
-                        </label><br>
-                        <input type="file" name="document" id="document" accept="application/pdf" required />
-                    </div>
+                        <div class="formbold-mb-5">
+                            <label for="document" class="form-label">
+                                Identity Document <span style="color: red;">*</span>
+                            </label><br>
+                            <input type="file" name="document" id="document" accept="application/pdf" required />
+                        </div>
 
-                    <div class="formbold-mb-5">
-                        <label for="document" class="form-label">
-                            Driver's License <span style="color: red;">*</span>
-                        </label><br>
-                        <input type="file" name="license" id="license" accept="application/pdf" required />
-                    </div>
+                        <div class="formbold-mb-5">
+                            <label for="document" class="form-label">
+                                Driver's License <span style="color: red;">*</span>
+                            </label><br>
+                            <input type="file" name="license" id="license" accept="application/pdf" required />
+                        </div>
 
                         <div>
                             <button type="submit" id="btn_continue" class="w-100 btn btn-primary btn-lg">Continue</button>
@@ -144,13 +145,13 @@
 
                     <h5 class="d-flex"><span class="text-secondary text-left">Pick up Location</span></h5>
                     <h6 class="d-flex justify-content-between align-items-center">
-                        <span class="text-info text-center pick-location">Tijuana</span>
+                        <span class="text-info text-center pick-location"></span>
                         <span class="text-success text-center pick-date"></span>
                     </h6>
 
                     <h5 class="d-flex"><span class="text-secondary text-left">Drop Off Location</span></h5>
                     <h6 class="d-flex justify-content-between align-items-center">
-                        <span class="text-info text-center drop-location">Tijuana</span>
+                        <span class="text-info text-center drop-location"></span>
                         <span class="text-danger text-center drop-date"></span>
                     </h6>
 
@@ -169,7 +170,7 @@
                         <li>
                             <h4 class="list-group-item d-flex justify-content-between border-5 border-success">
                                 <span>Total (USD)</span>
-                                <strong class="car-price">$20</strong>
+                                <strong class="car-price"></strong>
                             </h4>
                         </li>
                     </ul>
@@ -194,8 +195,6 @@
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script src="js/carDriverForm.js"></script>
     <script src="js/sweetAlerts.js"></script>
-    <script src="js/carDriverForm.js"></script>
-
 
     </section>
 

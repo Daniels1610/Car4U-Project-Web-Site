@@ -69,9 +69,4 @@ $(".pick-date").text(`${pickupDate}`)
 $(".drop-date").text(`${dropoffDate}`)
 searchCarByID(selectedCarID);
 
-    // Validar que no se supere la fecha actual
-    if (fechaNacimiento > fechaActual) {
-        alert("La fecha de nacimiento no puede ser posterior a la fecha actual.");
-        return false;
-    }
-}
+
