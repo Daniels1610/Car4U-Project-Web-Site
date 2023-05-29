@@ -18,7 +18,7 @@ $("#btn_continue").click(() => {
   driverInformation.state = $("#state").val();
   driverInformation.postCode = $("#post-code").val();
 
-  localStorage.setItem("driverInformation", driverInformation);
+  sessionStorage.setItem("driverInformation", JSON.stringify(driverInformation));
 });
 
 const searchCarByID = (carID) => {
@@ -41,6 +41,8 @@ const searchCarByID = (carID) => {
       $(".pick-location").text(`${carData.location}`);
       $(".drop-location").text(`${carData.location}`);
       $(".car-price").text(`$${carData.price * rentDays}`);
+
+      sessionStorage.setItem('carData', JSON.stringify(carData));
 
     })
     .catch(error => console.log(error));
