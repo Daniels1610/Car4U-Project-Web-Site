@@ -1,3 +1,23 @@
+const driverInfoAux = sessionStorage.getItem('driverInformation');
+
+const addInfoToRents = (data) => {
+    const url = `https://azp9iify5c.execute-api.us-east-1.amazonaws.com/dev/rents`;
+    
+    fetch(url, {
+        method: "POST",
+        mode: "no-cors",
+        headers: {
+            'Accept' : 'application/json',
+            'Content-Type' : 'application/json',
+        },
+        body: JSON.stringify(data)
+    })
+      .then((response) => {
+        console.log(response);
+      })
+      .catch(error => console.log(error));
+  };
+
 $(document).ready(function() {
     $('#btn_car4u').click(function(e) {
       e.preventDefault(); // Evita que se realice la acción predeterminada del enlace
@@ -105,6 +125,7 @@ $('#checkout_button').submit(function(e) {
         footer: '<span style="color: red"> Please check the order in detail before renting</span>'
     }).then((result)=>{
         if(result.isConfirmed){
+            addInfoToRents(driverInfoAux);
             Swal.fire({
                 title: 'Processing your Rent',
                 html: 'Give us a moment, we are processing your Rent',
@@ -141,3 +162,5 @@ $('#checkout_button').submit(function(e) {
     })
     });
 });
+
+

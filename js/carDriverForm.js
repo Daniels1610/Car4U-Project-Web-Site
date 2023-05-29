@@ -8,15 +8,20 @@ const driverInformation = {};
 carImage.src = `imagesCar/${selectedCarID}.png`;
 
 $("#btn_continue").click(() => {
-  driverInformation.name = $("#name").val();
-  driverInformation.lastname = $("#lastname").val();
-  driverInformation.email = $("#email").val();
-  driverInformation.phone = $("#phone").val();
-  driverInformation.date = $("#date").val();
-  driverInformation.street = $("#street").val();
-  driverInformation.city = $("#city").val();
-  driverInformation.state = $("#state").val();
-  driverInformation.postCode = $("#post-code").val();
+  driverInformation.Id = `${$("#lastname").val()}${$("#post-code").val()}`;
+  driverInformation.Location = localStorage.getItem('location');
+  driverInformation.CarID = selectedCarID;
+  driverInformation.PickDate = pickupDate;
+  driverInformation.DropDate = dropoffDate;
+  driverInformation.Firstname = $("#name").val();
+  driverInformation.Lastname = $("#lastname").val();
+  driverInformation.Email = $("#email").val();
+  driverInformation.Phone = $("#phone").val();
+  driverInformation.Birthdate = $("#date").val();
+  driverInformation.Address = `${$("#street").val()}`;
+  driverInformation.City = $("#city").val();
+  driverInformation.State = $("#state").val();
+  driverInformation.PostalCode = $("#post-code").val();
 
   sessionStorage.setItem("driverInformation", JSON.stringify(driverInformation));
 });
