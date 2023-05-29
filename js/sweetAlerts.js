@@ -35,28 +35,35 @@ $('#btn_car4u_selection').click(function(e) {
 });
 });
 
-$(document).ready(function() {
-    $('#btn_continue').click(function() {
-      Swal.fire({
-        title: 'Saving driver information',
-        timer: 1000,
-        timerProgressBar: true,
-        allowEscapeKey: false,
-        allowOutsideClick: false,
-        didOpen: () => {
-          Swal.showLoading();
-          timerInterval = setInterval(() => {}, 100);
-        },
-        willClose: () => {
-          clearInterval(timerInterval);
+  $(document).ready(function() {
+    $('#btn_continue').submit(function(e) {
+        e.preventDefault(); // Evita que se realice la acción predeterminada del formulario
+
+        if (this.checkValidity()) {
+            Swal.fire({
+                title: 'Saving driver information',
+                html: 'We will start with a Checkout Form',
+                timer: 2000,
+                timerProgressBar: true,
+                allowEscapeKey: false,
+                allowOutsideClick: false,
+                didOpen: () => {
+                    Swal.showLoading();
+                    timerInterval = setInterval(() => {}, 100);
+                },
+                willClose: () => {
+                    clearInterval(timerInterval);
+                }
+            }).then((result) => {
+                if (result.dismiss === Swal.DismissReason.timer) {
+                    window.location.href = "checkout.html";
+                }
+            });
+        } else {
+            this.reportValidity();
         }
-      }).then((result) => {
-        if (result.dismiss === Swal.DismissReason.timer) {
-          window.location.href = 'checkout.html';
-        }
-      });
     });
-  });
+});
 
 $('#checkout_button').click(function(){
 Swal.fire({
