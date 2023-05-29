@@ -88,8 +88,8 @@ cityTitle.classList.add("p-4");
 cityTitle.textContent = `Cars in ${locationEntered}`;
 bodyElement.prepend(cityTitle);
 
-
 searchCar(locationEntered);
+
 
 
 

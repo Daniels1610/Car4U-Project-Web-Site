@@ -1,5 +1,7 @@
 const selectedCarID = localStorage.getItem('selectedCarID');
 const carImage = document.querySelector('.car-image');
+const pickupDate = localStorage.getItem('pickupDate');
+const dropoffDate = localStorage.getItem('dropoffDate');
 
 const driverInformation = {};
 
@@ -33,11 +35,12 @@ const searchCarByID = (carID) => {
       let price = JSON.parse(JSON.stringify(data.Item.DailyRate.N));
       
       const carData = {model : model, year : year, location : location, price : price};
+      const rentDays = dailyRateByDays(pickupDate, dropoffDate);
 
       $(".car-model-text").text(`${carData.model} o similar`);
       $(".pick-location").text(`${carData.location}`);
       $(".drop-location").text(`${carData.location}`);
-      $(".car-price").text(`$${carData.price}`);
+      $(".car-price").text(`$${carData.price * rentDays}`);
 
     })
     .catch(error => console.log(error));
@@ -45,5 +48,22 @@ const searchCarByID = (carID) => {
     
 };
 
+const reformatDate = (dateString) => {
+  var dateParts = dateString.split("/"); var month = dateParts[0];
+  var day = dateParts[1]; var year = dateParts[2];
+  return year + "-" + ("0" + month).slice(-2) + "-" + ("0" + day).slice(-2);
+}
+
+const dailyRateByDays = (pickDate, dropDate) => {
+  const pickDateF = new Date(reformatDate(pickupDate));
+  const dropDateF = new Date(reformatDate(dropDate));
+  const timeDiff = Math.abs(dropDateF.getTime() - pickDateF.getTime());
+  const daysDiff = Math.ceil(timeDiff / (1000 * 3600 * 24));
+  return daysDiff;
+
+}
+
+$(".pick-date").text(`${pickupDate}`)
+$(".drop-date").text(`${dropoffDate}`)
 searchCarByID(selectedCarID);
 
