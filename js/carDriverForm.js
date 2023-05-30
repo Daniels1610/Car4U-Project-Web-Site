@@ -38,8 +38,9 @@ const searchCarByID = (carID) => {
       let year = JSON.parse(JSON.stringify(data.Item.Year.N));
       let location = JSON.parse(JSON.stringify(data.Item.Location.S));
       let price = JSON.parse(JSON.stringify(data.Item.DailyRate.N));
-      
-      const carData = {model : model, year : year, location : location, price : price};
+      let maker = JSON.parse(JSON.stringify(data.Item.Manufacturer.S))
+
+      const carData = {model : model, year : year, location : location, price : price, maker:maker};
       const rentDays = dailyRateByDays(pickupDate, dropoffDate);
 
       $(".car-model-text").text(`${carData.model} o similar`);
