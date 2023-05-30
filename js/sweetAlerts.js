@@ -87,6 +87,7 @@ $(document).ready(function() {
     });
 });
 
+
 // $(document).ready(function() {
 // $('#checkout_button').submit(function(e) {
 //         e.preventDefault(); 
@@ -169,3 +170,7 @@ $(document).ready(function() {
         $('#exampleModal').modal('hide');
     });
 });
+
+
+
+
