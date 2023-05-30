@@ -68,5 +68,3 @@ const dailyRateByDays = (pickDate, dropDate) => {
 $(".pick-date").text(`${pickupDate}`)
 $(".drop-date").text(`${dropoffDate}`)
 searchCarByID(selectedCarID);
-
-
