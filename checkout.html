@@ -43,6 +43,9 @@
       crossorigin="anonymous"
     ></script>
 
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet">
+
+
     <link rel="stylesheet" href="css/open-iconic-bootstrap.min.css" />
     <link rel="stylesheet" href="css/animate.css" />
 
@@ -80,7 +83,7 @@
         <div class="row">
           <div class="col-8">
             <h4 class="mb-3">Payment</h4>
-
+        <!-- <form id="btn_confirm"> -->
             <div class="my-3">
               <div class="form-check">
                 <input
@@ -173,7 +176,7 @@
                   <option>12</option>
                 </select>
                 <div class="invalid-feedback">
-                  Please select a valid country.
+                  Please select a valid Expiration MM.
                 </div>
               </div>
 
@@ -191,7 +194,7 @@
                   <option>2030</option>
                 </select>
                 <div class="invalid-feedback">
-                  Please provide a valid state.
+                  Please provide a valid Expiration YY.
                 </div>
               </div>
 
@@ -205,7 +208,7 @@
                   placeholder=""
                   required
                 />
-                <div class="invalid-feedback">Security code required</div>
+                <div class="invalid-feedback">Security CVV required</div>
               </div>
             </div>
             <!-- <div class="col-md-3 dropdown w-100">
@@ -223,6 +226,7 @@
             <!-- <button type="submit" class="w-100 btn btn-primary btn-lg" id="checkout_button" >Confirm your Rent</button> -->
             <button
               type="submit"
+              id="btn_confirm"
               class="w-100 btn btn-primary btn-lg"
               data-bs-toggle="modal"
               data-bs-target="#exampleModal"
@@ -230,7 +234,7 @@
               Confirm your Rent
             </button>
           </div>
-
+        <!-- </form> -->
           <div
             class="modal fade"
             id="exampleModal"
@@ -316,6 +320,7 @@
               </div>
             </div>
           </div>
+          
 
           <!-- <div class="col-4">
                         <div class="text-center">
@@ -428,9 +433,11 @@
         </div>
       </div>
     </section>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.7.5/dist/sweetalert2.all.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js"></script>
     <script src="js/support/jquery.min.js"></script>
     <script src="js/support/jquery-migrate-3.0.1.min.js"></script>
     <script src="js/support/popper.min.js"></script>
@@ -447,7 +454,12 @@
     <script src="js/support/scrollax.min.js"></script>
     <script src="js/support/main.js"></script>
 
+    <script src="js/sweetAlerts.js"></script>
+
     <script src="js/carCheckout.js"></script>
     <script src="js/carDriverForm.js"></script>
+
+    
+    
   </body>
 </html>

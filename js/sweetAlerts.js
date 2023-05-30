@@ -140,5 +140,23 @@ $(document).ready(function() {
 });
 
 
-
+$(document).ready(function() {
+$('#btn_message').submit(function(e) {
+    e.preventDefault();
+    
+    Swal.fire({
+        timerProgressBar: true,
+        allowOutsideClick: false,
+        title: 'Message Sent Successfully',
+        html: 'Wait for our answer!',
+        icon: 'success',
+        confirmButtonText: 'OK'
+    }).then((result) => {
+        if (result.isConfirmed) {
+        window.location.href = 'index.html';
+        }
+    });
+});
+});
+  
 
