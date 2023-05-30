@@ -15,3 +15,12 @@ function formatCardNumber() {
 
     cardNumberInput.value = value;
 }
+const selected_carId = localStorage.getItem("selectedCarID"); 
+
+const carImage2 = document.querySelector('.carImage');
+
+carImage2.src = `imagesCar/${selected_carId}.png`;
+
+// const selectedCarID = localStorage.getItem('selectedCarID');
+// const carImage = document.querySelector('.car-image');
+// carImage.src = `imagesCar/${selectedCarID}.png`;
