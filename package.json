@@ -1,0 +1,23 @@
+{
+  "name": "car4u-project-web-site",
+  "version": "1.0.0",
+  "description": "This repository aims to store the web resources that support the Car4U Web Page. The purpose of this project is a Car Rental Service System using a Software Architecture comprised of AWS.",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Daniels1610/Car4U-Project-Web-Site.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Daniels1610/Car4U-Project-Web-Site/issues"
+  },
+  "homepage": "https://github.com/Daniels1610/Car4U-Project-Web-Site#readme",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
+}

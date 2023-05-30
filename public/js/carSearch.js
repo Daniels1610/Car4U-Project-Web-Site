@@ -27,7 +27,7 @@ const searchAlert = () => {
         }
         }).then((result) => {
         if (result.dismiss === Swal.DismissReason.timer) {
-            window.location.href = "selection.html";
+            window.location.href = "selection";
         }
         })
 };
