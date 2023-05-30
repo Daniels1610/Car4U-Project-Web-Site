@@ -1,42 +1,45 @@
 const contactForm = {};
 const sendBtn = document.querySelector(".sendbtn");
 
-const sendEmail = (data) => {
-    const url = 'http://ec2-18-224-14-162.us-east-2.compute.amazonaws.com/contact';
-    
-    fetch(url, {
-        method: "POST",
-        headers: {
-            'Content-Type': 'application/json',
-            'Accept': 'application/json'
-        },
-        body: JSON.stringify(data)
+const sendEmail = () => {
+    var myHeaders = new Headers();
+    myHeaders.append("Content-Type", "application/json");
+
+    var raw = JSON.stringify({
+      email: `${$("#email").val()}`,
+      subject: `${$("#subject").val()}`,
+      message: `${$("#message").val()}`,
+    });
+
+    var requestOptions = {
+      method: "POST",
+      headers: myHeaders,
+      body: raw,
+      redirect: "follow",
+    };
+
+    fetch(
+      "https://a9169svduc.execute-api.us-east-2.amazonaws.com/develop/contact/",
+      requestOptions
+    )
+      .then((response) => {
+        return response.text()
     })
-        .then((response) => {
-            return response.json();
-        })
-        .then(res => {
-            console.log(res);
-        })
-        .catch(error => console.log(error));
+      .then((result) => console.log(result))
+      .catch((error) => console.log("error", error));
 }
 
 const successAlert = () => {
-    sendBtn.addEventListener("click", () => {
-        Swal.fire(
-            'Message Sent',
-            'Thank you for contacting us!',
-            'success'
-        );
-    });
+    Swal.fire(
+        'Message Sent',
+        'Thank you for contacting us!',
+        'success'
+    );
 }
 
 const main = () => {
     sendBtn.addEventListener("click", () => {
-        contactForm.email = {"S" : `${$("#email").val()}`};
-        contactForm.subject = {"S" : `${$("#subject").val()}`};
-        contactForm.message = {"S" : `${$("#message").val()}`};
-        sendEmail(contactForm);
+        sendEmail();
         successAlert();
     });
 }
