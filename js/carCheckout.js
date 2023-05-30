@@ -1,3 +1,4 @@
+const driverInfo = localStorage.getItem('driverInformation');
 // CREDIT CARD INPUT AND VALIDATION
 // Get the input field
 const cardNumberInput = document.getElementById('cc-number');
@@ -64,6 +65,7 @@ $(document).ready(function() {
                     }
                     }).then((result) => {
                     if (result.dismiss === Swal.DismissReason.timer) {
+                        addInfoToRents(driverInfo);
                         Swal.fire({
                             timerProgressBar: true,
                             allowOutsideClick: false,
