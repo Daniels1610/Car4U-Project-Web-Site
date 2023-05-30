@@ -18,6 +18,8 @@
   },
   "homepage": "https://github.com/Daniels1610/Car4U-Project-Web-Site#readme",
   "dependencies": {
-    "express": "^4.17.1"
+    "body-parser": "^1.20.2",
+    "express": "^4.17.1",
+    "nodemailer": "^6.9.3"
   }
 }

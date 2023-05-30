@@ -6,6 +6,23 @@ const message = document.getElementById("message");
 const sendBtn = document.querySelector(".sendbtn");
 
 const sendEmail = async () => {
+    // TODO: DELETE ME ONCE IT WORKS AWS SES
+    const formData = {
+        receiver: email.value,
+        subject: subject.value,
+        message: message.value
+    }
+    const response = await fetch('/smtp/', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData),
+      });
+
+    return
+    // TODO: END 
+
     const input = {
         Source: email.value,
         Destination : {

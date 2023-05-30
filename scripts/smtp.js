@@ -1,19 +1,23 @@
 const nodemailer = require('nodemailer');
 
-async function sendEmail() {
-  // Create a transporter using the default SMTP transport
-  let transporter = nodemailer.createTransport({
-    service: 'gmail',
-    auth: {
-      user: 'your-email@gmail.com', // Your email address
-      pass: 'your-password' // Your email password or app-specific password
-    }
-  });
 
+// Create a transporter using the default SMTP transport
+let transporter = nodemailer.createTransport({
+    service: 'gmail',
+    port: 465,
+    secure: true,
+    auth: {
+      user: '-----', // Your Gmail email address
+      pass: '-----' // Your Gmail password or app-specific password
+    }
+});
+
+
+async function sendEmail(receiver, subject, message) {
   // Set up email data
   let mailOptions = {
-    from: 'your-email@gmail.com', // Sender address
-    to: 'recipient@example.com', // List of recipients
+    from: '-----', // Sender address
+    to: '-----', // List of recipients
     subject: 'Test Email', // Subject line
     text: 'Hello, this is a test email!' // Plain text body
   };
@@ -27,4 +31,4 @@ async function sendEmail() {
   }
 }
 
-sendEmail();
+module.exports = sendEmail;
