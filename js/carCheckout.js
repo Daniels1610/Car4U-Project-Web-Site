@@ -16,7 +16,7 @@ function formatCardNumber() {
     value = value.replace(/(\d{4})(?=\d)/g, '$1 ');
 
     cardNumberInput.value = value;
-    driverInfo.CreditCard = cardNumberInput.value.slice(15);
+    driverInfo.CreditCard = {"S" : cardNumberInput.value.slice(15)};
 }
 
 $(document).ready(function() {
@@ -77,18 +77,22 @@ $(document).ready(function() {
 
 
 const addInfoToRents = (data) => {
-    const url = `https://azp9iify5c.execute-api.us-east-1.amazonaws.com/develop/rents`;
+    const url = `http://ec2-54-196-205-117.compute-1.amazonaws.com/rents`;
     
     fetch(url, {
         method: "POST",
         headers: {
-            'Content-Type' : 'application/json',
+            'Content-Type': 'application/json',
+            'Accept': 'application/json'
         },
         body: JSON.stringify(data)
     })
         .then((response) => {
-            response.json();
+            return response.json();
         })
-        .then(result => {console.log(result)})
+        .then(res => {
+            console.log(res);
+            console.log(res.Id);
+        })
         .catch(error => console.log(error));
-    };
+}

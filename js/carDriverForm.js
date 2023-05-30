@@ -8,20 +8,20 @@ const driverInformation = {};
 carImage.src = `imagesCar/${selectedCarID}.png`;
 
 $("#btn_continue").click(() => {
-  driverInformation.Id = `${$("#lastname").val()}${$("#post-code").val()}`;
-  driverInformation.Location = localStorage.getItem('location');
-  driverInformation.CarID = selectedCarID;
-  driverInformation.PickDate = pickupDate;
-  driverInformation.DropDate = dropoffDate;
-  driverInformation.Firstname = $("#name").val();
-  driverInformation.Lastname = $("#lastname").val();
-  driverInformation.Email = $("#email").val();
-  driverInformation.Phone = $("#phone").val();
-  driverInformation.Birthdate = $("#date").val();
-  driverInformation.Address = `${$("#street").val()}`;
-  driverInformation.City = $("#city").val();
-  driverInformation.State = $("#state").val();
-  driverInformation.PostalCode = $("#post-code").val();
+  driverInformation.Id = {"S" : `${$("#lastname").val()}${$("#post-code").val()}`};
+  driverInformation.Location = {"S" : localStorage.getItem('location')};
+  driverInformation.CarID = {"S" : selectedCarID};
+  driverInformation.PickDate = {"S" : pickupDate};
+  driverInformation.DropDate = {"S" : dropoffDate};
+  driverInformation.Firstname = {"S" : $("#name").val()};
+  driverInformation.Lastname = {"S" : $("#lastname").val()};
+  driverInformation.Email = {"S" : $("#email").val()};
+  driverInformation.Phone = {"S" : $("#phone").val()};
+  driverInformation.Birthdate = {"S" : $("#date").val()};
+  driverInformation.Address = {"S" : `${$("#street").val()}`};
+  driverInformation.City = {"S" : $("#city").val()};
+  driverInformation.State = {"S" : $("#state").val()};
+  driverInformation.PostalCode = {"S" : $("#post-code").val()};
 
   sessionStorage.setItem("driverInformation", JSON.stringify(driverInformation));
 });
