@@ -46,7 +46,8 @@ const searchCarByID = (carID) => {
       $(".pick-location").text(`${carData.location}`);
       $(".drop-location").text(`${carData.location}`);
       $(".car-price").text(`$${carData.price * rentDays}`);
-
+      $(".car-rent-days").text(`${rentDays}`);
+      $(".car-price-unit").text(`$${carData.price}`);
       sessionStorage.setItem('carData', JSON.stringify(carData));
 
     })
@@ -73,3 +74,4 @@ const dailyRateByDays = (pickDate, dropDate) => {
 $(".pick-date").text(`${pickupDate}`)
 $(".drop-date").text(`${dropoffDate}`)
 searchCarByID(selectedCarID);
+
