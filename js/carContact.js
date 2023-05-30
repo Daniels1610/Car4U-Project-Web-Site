@@ -1,11 +1,8 @@
 const contactForm = {};
-
-contactForm.email = {"S" : `${$("#email").val()}`};
-contactForm.subject = {"S" : `${$("#subject").val()}`};
-contactForm.message = {"S" : `${$("#message").val()}`};
+const sendBtn = document.querySelector(".sendbtn");
 
 const sendEmail = (data) => {
-    const url = `http://ec2-54-196-205-117.compute-1.amazonaws.com/contact`;
+    const url = 'http://ec2-18-224-14-162.us-east-2.compute.amazonaws.com/contact';
     
     fetch(url, {
         method: "POST",
@@ -20,9 +17,28 @@ const sendEmail = (data) => {
         })
         .then(res => {
             console.log(res);
-            console.log(res.Id);
         })
         .catch(error => console.log(error));
 }
 
-sendEmail(contactForm);
+const successAlert = () => {
+    sendBtn.addEventListener("click", () => {
+        Swal.fire(
+            'Message Sent',
+            'Thank you for contacting us!',
+            'success'
+        );
+    });
+}
+
+const main = () => {
+    sendBtn.addEventListener("click", () => {
+        contactForm.email = {"S" : `${$("#email").val()}`};
+        contactForm.subject = {"S" : `${$("#subject").val()}`};
+        contactForm.message = {"S" : `${$("#message").val()}`};
+        sendEmail(contactForm);
+        successAlert();
+    });
+}
+
+main();
