@@ -86,7 +86,6 @@ $(document).ready(function() {
         });
     });
 
-
 const addInfoToRents = (data) => {
     const url = `http://ec2-54-196-205-117.compute-1.amazonaws.com/rents`;
     
