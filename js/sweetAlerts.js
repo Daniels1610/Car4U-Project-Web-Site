@@ -88,4 +88,89 @@ $(document).ready(function() {
 });
 
 
+// $(document).ready(function() {
+// $('#checkout_button').submit(function(e) {
+//         e.preventDefault(); 
+  
+//         Swal.fire({
+//             title: 'Processing your Rent',
+//             html: 'Give us a moment, we are processing your Rent',
+//             timer: 2000,
+//             timerProgressBar: true,
+//             allowOutsideClick: false,
+//             allowEscapeKey: false,
+//             didOpen: () => {
+//                 Swal.showLoading();
+//                 timerInterval = setInterval(() => {}, 100);
+//             },
+//             willClose: () => {
+//                 clearInterval(timerInterval);
+//             }
+//         }).then((result) => {
+//             if (result.dismiss === Swal.DismissReason.timer) {
+//                 Swal.fire({
+//                     timerProgressBar: true,
+//                     allowOutsideClick: false,
+//                     title: 'Rent Completed',
+//                     html: 'Your Rent has been Successful<br>Thank you for Renting on Car4U!',
+//                     icon: 'success',
+//                     confirmButtonText: 'OK'
+//                 }).then((result) => {
+//                     if (result.isConfirmed) {
+//                         window.location.href = 'index.html';
+//                     }
+//                 });
+//             } else {
+//                 return;
+//             }
+//         });
+//     });
+// });
+
+$(document).ready(function() {
+    $('#payNowButton').click(function() {
+
+        Swal.fire({
+            title: 'Processing your Rent',
+            html: 'Give us a moment, we are processing your Rent',
+            timer: 2000,
+            timerProgressBar: true,
+            allowOutsideClick: false,
+            allowEscapeKey: false,
+            didOpen: () => {
+                Swal.showLoading();
+                timerInterval = setInterval(() => {}, 100);
+            },
+            willClose: () => {
+                clearInterval(timerInterval);
+            }
+        }).then((result) => {
+            if (result.dismiss === Swal.DismissReason.timer) {
+                Swal.fire({
+                    timerProgressBar: true,
+                    allowOutsideClick: false,
+                    title: 'Rent Completed',
+                    html: 'Your Rent has been Successful<br>Thank you for Renting on Car4U!',
+                    icon: 'success',
+                    confirmButtonText: 'OK'
+                }).then((result) => {
+                    if (result.isConfirmed) {
+                        window.location.href = 'index.html';
+                    }
+                });
+            } else {
+                return;
+            }
+        });
+    });
+});
+
+$(document).ready(function() {
+    $('#cancelButton').click(function() {
+        $('#exampleModal').modal('hide');
+    });
+});
+
+
+
 

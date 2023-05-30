@@ -1,7 +1,5 @@
 // CREDIT CARD INPUT AND VALIDATION
 // Get the input field
-const driverInfo = JSON.parse(sessionStorage.getItem('driverInformation'));
-const carData = JSON.parse(sessionStorage.getItem('carData'));
 const cardNumberInput = document.getElementById('cc-number');
 
 // Add event listener for input changes
@@ -18,6 +16,17 @@ function formatCardNumber() {
     cardNumberInput.value = value;
     driverInfo.CreditCard = {"S" : cardNumberInput.value.slice(15)};
 }
+
+const selected_carId = localStorage.getItem("selectedCarID"); 
+
+const carImage2 = document.querySelector('.carImage');
+
+carImage2.src = `imagesCar/${selected_carId}.png`;
+
+// const selectedCarID = localStorage.getItem('selectedCarID');
+// const carImage = document.querySelector('.car-image');
+// carImage.src = `imagesCar/${selectedCarID}.png`;
+
 
 $(document).ready(function() {
     $('#checkout_button').submit(function(e) {
@@ -96,3 +105,4 @@ const addInfoToRents = (data) => {
         })
         .catch(error => console.log(error));
 }
+
