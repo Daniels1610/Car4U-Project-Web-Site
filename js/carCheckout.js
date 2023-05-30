@@ -77,18 +77,18 @@ $(document).ready(function() {
 
 
 const addInfoToRents = (data) => {
-    const url = `https://azp9iify5c.execute-api.us-east-1.amazonaws.com/dev/rents`;
+    const url = `https://azp9iify5c.execute-api.us-east-1.amazonaws.com/develop/rents`;
     
     fetch(url, {
         method: "POST",
         headers: {
-            'Accept' : 'application/json',
             'Content-Type' : 'application/json',
         },
         body: JSON.stringify(data)
     })
         .then((response) => {
-        console.log(response);
+            response.json();
         })
+        .then(result => {console.log(result)})
         .catch(error => console.log(error));
     };

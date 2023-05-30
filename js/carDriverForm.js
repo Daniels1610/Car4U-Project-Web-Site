@@ -27,7 +27,7 @@ $("#btn_continue").click(() => {
 });
 
 const searchCarByID = (carID) => {
-  const url = `https://azp9iify5c.execute-api.us-east-1.amazonaws.com/dev/cars/${carID}`;
+  const url = `https://azp9iify5c.execute-api.us-east-1.amazonaws.com/develop/cars/${carID}`;
   
   fetch(url)
     .then(res => {
