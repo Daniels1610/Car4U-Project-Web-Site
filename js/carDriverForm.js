@@ -8,21 +8,26 @@ const driverInformation = {};
 carImage.src = `imagesCar/${selectedCarID}.png`;
 
 $("#btn_continue").click(() => {
-  driverInformation.name = $("#name").val();
-  driverInformation.lastname = $("#lastname").val();
-  driverInformation.email = $("#email").val();
-  driverInformation.phone = $("#phone").val();
-  driverInformation.date = $("#date").val();
-  driverInformation.street = $("#street").val();
-  driverInformation.city = $("#city").val();
-  driverInformation.state = $("#state").val();
-  driverInformation.postCode = $("#post-code").val();
+  driverInformation.Id = {"S" : `${$("#lastname").val()}${$("#post-code").val()}`};
+  driverInformation.Location = {"S" : localStorage.getItem('location')};
+  driverInformation.CarID = {"S" : selectedCarID};
+  driverInformation.PickDate = {"S" : pickupDate};
+  driverInformation.DropDate = {"S" : dropoffDate};
+  driverInformation.Firstname = {"S" : $("#name").val()};
+  driverInformation.Lastname = {"S" : $("#lastname").val()};
+  driverInformation.Email = {"S" : $("#email").val()};
+  driverInformation.Phone = {"S" : $("#phone").val()};
+  driverInformation.Birthdate = {"S" : $("#date").val()};
+  driverInformation.Address = {"S" : `${$("#street").val()}`};
+  driverInformation.City = {"S" : $("#city").val()};
+  driverInformation.State = {"S" : $("#state").val()};
+  driverInformation.PostalCode = {"S" : $("#post-code").val()};
 
   sessionStorage.setItem("driverInformation", JSON.stringify(driverInformation));
 });
 
 const searchCarByID = (carID) => {
-  const url = `https://azp9iify5c.execute-api.us-east-1.amazonaws.com/dev/cars/${carID}`;
+  const url = `https://azp9iify5c.execute-api.us-east-1.amazonaws.com/develop/cars/${carID}`;
   
   fetch(url)
     .then(res => {
@@ -33,8 +38,9 @@ const searchCarByID = (carID) => {
       let year = JSON.parse(JSON.stringify(data.Item.Year.N));
       let location = JSON.parse(JSON.stringify(data.Item.Location.S));
       let price = JSON.parse(JSON.stringify(data.Item.DailyRate.N));
-      
-      const carData = {model : model, year : year, location : location, price : price};
+      let maker = JSON.parse(JSON.stringify(data.Item.Manufacturer.S))
+
+      const carData = {model : model, year : year, location : location, price : price, maker:maker};
       const rentDays = dailyRateByDays(pickupDate, dropoffDate);
 
       $(".car-model-text").text(`${carData.model} o similar`);
@@ -68,5 +74,3 @@ const dailyRateByDays = (pickDate, dropDate) => {
 $(".pick-date").text(`${pickupDate}`)
 $(".drop-date").text(`${dropoffDate}`)
 searchCarByID(selectedCarID);
-
-
